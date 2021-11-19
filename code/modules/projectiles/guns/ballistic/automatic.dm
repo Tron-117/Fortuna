@@ -111,14 +111,14 @@
 /obj/item/gun/ballistic/automatic/proc/enable_burst()
 	burst_size = initial(burst_size)
 	if(auto_sear)
-		burst_size = 1 + initial(burst_size)
+		burst_size += initial(burst_size)
 	if(burst_improvement)
-		burst_size = 1 + initial(burst_size)
+		burst_size += initial(burst_size)
 	if(burst_improvement && auto_sear)
-		burst_size = 2 + initial(burst_size)
+		burst_size += 1 + initial(burst_size)
 
 /obj/item/gun/ballistic/automatic/proc/disable_burst()
-	burst_size = 1
+	burst_size = initial(burst_size)
 
 /obj/item/gun/ballistic/automatic/can_shoot()
 	return get_ammo()
@@ -227,6 +227,7 @@
 			recoil = 0.1
 			weapon_weight = WEAPON_HEAVY
 			to_chat(user, "<span class='notice'>You switch to automatic fire.</span>")
+			enable_burst()
 		if(1)
 			select = 0
 			burst_size = 1
@@ -238,6 +239,37 @@
 	update_icon()
 	return
 
+/obj/item/gun/ballistic/automatic/smg/greasegun/worn
+	name = "beat up M3A1 Grease Gun"
+	desc = "What was once an inexpensive, but reliable submachine gun is now an inexpensive piece of shit. It's impressive this thing still fires at all."
+	can_attachments = FALSE
+	recoil = 0.3
+	extra_damage = -4
+	extra_penetration = -0.1
+
+/obj/item/gun/ballistic/automatic/smg/greasegun/worn/burst_select()
+	var/mob/living/carbon/human/user = usr
+	switch(select)
+		if(0)
+			select += 1
+			burst_size = 2
+			spread = 12.5
+			fire_delay =3.5
+			recoil = 0.3
+			weapon_weight = WEAPON_HEAVY
+			to_chat(user, "<span class='notice'>You switch to automatic fire.</span>")
+			enable_burst()
+		if(1)
+			select = 0
+			burst_size = 1
+			fire_delay = 3.5
+			spread = 2
+			weapon_weight = WEAPON_HEAVY
+			recoil = 0.2
+			to_chat(user, "<span class='notice'>You switch to semi-auto.</span>")
+	playsound(user, 'sound/weapons/empty.ogg', 100, 1)
+	update_icon()
+	return
 
 //10mm SMG			Keywords: 10mm, Automatic, 12/24 rounds
 /obj/item/gun/ballistic/automatic/smg/smg10mm
@@ -272,6 +304,7 @@
 			recoil = 0.1
 			weapon_weight = WEAPON_HEAVY
 			to_chat(user, "<span class='notice'>You switch to automatic fire.</span>")
+			enable_burst()
 		if(1)
 			select = 0
 			burst_size = 1
@@ -311,6 +344,7 @@
 			recoil = 0.1
 			weapon_weight = WEAPON_HEAVY
 			to_chat(user, "<span class='notice'>You switch to automatic fire.</span>")
+			enable_burst()
 		if(1)
 			select = 0
 			burst_size = 1
@@ -588,7 +622,7 @@
 	item_state = "servicerifle"
 	extra_damage = 4
 	mag_type = /obj/item/ammo_box/magazine/m556/rifle
-	fire_delay = 4.5
+	fire_delay = 3.5
 	burst_size = 1
 	spread = 1
 	can_attachments = TRUE
@@ -853,7 +887,7 @@
 	desc = "The assault rifle variant of the R84, based off the pre-war FN FNC. Issued to high-ranking troopers and specialized units. Chambered in 5.56."
 	icon_state = "R82"
 	item_state = "R84"
-	fire_delay = 4.2
+	fire_delay = 2.5
 	can_suppress = TRUE
 	suppressor_state = "rifle_suppressor"
 	suppressor_x_offset = 27
@@ -1237,7 +1271,6 @@
 	zoom_amt = 10
 	zoom_out_amt = 13
 	can_scope = FALSE
-
 
 // BETA STUFF // =Obsolete
 /obj/item/gun/ballistic/automatic/smgtesting

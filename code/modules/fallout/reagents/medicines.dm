@@ -53,7 +53,21 @@
 	..()
 	. = TRUE
 
-/datum/reagent/medicine/super_stimpak
+/datum/reagent/medicine/stimpak/imitation
+	name = "Imitation Stimpak Fluid"
+	description = "Rapidly heals damage when injected. A poor man's stimpak."
+	reagent_state = LIQUID
+
+/datum/reagent/medicine/stimpak/imitation/on_mob_life(mob/living/carbon/M)
+	if(M.getBruteLoss() == 0 && M.getFireLoss() == 0)
+		metabolization_rate = 1000 * REAGENTS_METABOLISM //instant metabolise if it won't help you, prevents prehealing before combat
+	M.adjustBruteLoss(-2.5*REAGENTS_EFFECT_MULTIPLIER)
+	M.adjustFireLoss(-2.5*REAGENTS_EFFECT_MULTIPLIER)
+	M.AdjustKnockdown(-5*REAGENTS_EFFECT_MULTIPLIER, 0)
+	M.adjustStaminaLoss(-2*REAGENTS_EFFECT_MULTIPLIER)
+	..()
+
+/datum/reagent/medicine/stimpak/super_stimpak
 	name = "super stim chemicals"
 
 	description = "Chemicals found in pre-war stimpaks."
@@ -63,7 +77,7 @@
 	overdose_threshold = 20
 	addiction_threshold = 16
 
-datum/reagent/medicine/super_stimpak/on_mob_life(mob/living/M)
+datum/reagent/medicine/stimpak/super_stimpak/on_mob_life(mob/living/M)
 	if(M.health < 0)					//Functions as epinephrine.
 		M.adjustToxLoss(-0.5*REAGENTS_EFFECT_MULTIPLIER, 0)
 		M.adjustBruteLoss(-0.5*REAGENTS_EFFECT_MULTIPLIER, 0)
@@ -203,7 +217,7 @@ datum/reagent/medicine/super_stimpak/on_mob_life(mob/living/M)
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM //in between powder/stimpaks and poultice/superstims?
 	overdose_threshold = 31
 	var/heal_factor = -3 //Subtractive multiplier if you do not have the perk.
-	var/heal_factor_perk = -8 //Multiplier if you have the right perk.
+	var/heal_factor_perk = -5 //Multiplier if you have the right perk.
 
 /datum/reagent/medicine/bitter_drink/on_mob_life(mob/living/carbon/M)
 	var/is_tribal = FALSE
@@ -235,7 +249,7 @@ datum/reagent/medicine/super_stimpak/on_mob_life(mob/living/M)
 	metabolization_rate = 0.5 * REAGENTS_METABOLISM
 	overdose_threshold = 30
 	var/heal_factor = -1.5 //Subtractive multiplier if you do not have the perk.
-	var/heal_factor_perk = -3 //Multiplier if you have the right perk.
+	var/heal_factor_perk = -2.5 //Multiplier if you have the right perk.
 
 /datum/reagent/medicine/healing_powder/on_mob_life(mob/living/carbon/M)
 	var/is_tribal = FALSE

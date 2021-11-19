@@ -178,7 +178,7 @@
 	icon_state = "stimpakpen"
 	volume = 10
 	amount_per_transfer_from_this = 10
-	list_reagents = list(/datum/reagent/medicine/stimpak = 10, /datum/reagent/medicine/stimulants = 10, /datum/reagent/medicine/omnizine = 10)
+	list_reagents = list(/datum/reagent/medicine/stimpak = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/stimpak/on_reagent_change(changetype)
 	update_icon()
@@ -193,12 +193,16 @@
 	desc = "A handheld delivery system for medicine, this particular one will deliver a tailored cocktail."
 	list_reagents = null
 
+/obj/item/reagent_containers/hypospray/medipen/stimpak/imitation
+	desc = "A handheld delivery system for medicine. This one is filled with ground up flower juice, but hey, whatever gets you moving, right?"
+	list_reagents = list(/datum/reagent/medicine/stimpak/imitation = 10)
+
 /obj/item/reagent_containers/hypospray/medipen/stimpak/super
 	name = "super stimpak"
 	desc = "The super version comes in a hypodermic, but with an additional vial containing more powerful drugs than the basic model and a leather belt to strap the needle to the injured limb."
 	icon_state = "superstimpakpen"
 	amount_per_transfer_from_this = 10
-	list_reagents = list(/datum/reagent/medicine/super_stimpak = 10)
+	list_reagents = list(/datum/reagent/medicine/stimpak/super_stimpak = 10)
 
 /obj/item/reagent_containers/hypospray/medipen/stimpak/super/custom
 	desc = "The super version comes in a hypodermic, but with an additional vial to inject more drugs than the basic model and a leather belt to strap the needle to a limb. This particular one will deliver a tailored cocktail."
@@ -328,6 +332,15 @@
 	volume = 10
 	amount_per_transfer_from_this = 10
 	list_reagents = list(/datum/reagent/drug/psycho = 10)
+
+
+/obj/item/reagent_containers/hypospray/medipen/medx
+	name = "Med-X"
+	desc = "A short-lasting shot of Med-X applied via hypodermic needle."
+	icon_state = "medx"
+	volume = 15
+	amount_per_transfer_from_this = 5
+	list_reagents = list(/datum/reagent/medicine/medx = 5)
 
 /obj/item/hypospray/mkii/Initialize()
 	. = ..()

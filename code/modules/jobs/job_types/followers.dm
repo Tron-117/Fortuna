@@ -287,6 +287,7 @@ Follower Volunteer
 	id = 		/obj/item/card/id/silver
 	uniform = 	/obj/item/clothing/under/f13/followers
 	shoes = 	/obj/item/clothing/shoes/f13/explorer
+	r_hand =	/obj/item/book/granter/trait/medical
 	backpack = 	/obj/item/storage/backpack/explorer
 	satchel = 	/obj/item/storage/backpack/satchel/explorer
 	backpack_contents =  list(
@@ -352,6 +353,9 @@ Follower Volunteer
 
 	outfit = /datum/outfit/job/followers/f13followerguard
 
+	loadout_options = list(/datum/outfit/loadout/guard_ranged,
+	/datum/outfit/loadout/guard_close
+	)
 	access = list(ACCESS_FOLLOWER, ACCESS_MILITARY)
 	minimal_access = list(ACCESS_FOLLOWER, ACCESS_MILITARY)
 

@@ -49,6 +49,7 @@
 	..()
 
 //Green
+/* Fortuna edit: Disabled slime mutation toxins
 /datum/chemical_reaction/slime/slimemutate
 	name = "Mutation Toxin"
 	id = /datum/reagent/slime_toxin
@@ -80,6 +81,7 @@
 	required_reagents = list(/datum/reagent/water = 1)
 	required_other = TRUE
 	required_container = /obj/item/slime_extract/green
+*/
 
 //Metal
 /datum/chemical_reaction/slime/slimemetal
@@ -235,8 +237,7 @@
 	if(holder && holder.my_atom)
 		var/turf/open/T = get_turf(holder.my_atom)
 		if(istype(T))
-			var/datum/gas/gastype = /datum/gas/nitrogen
-			T.atmos_spawn_air("[initial(gastype.id)]=50;TEMP=2.7")
+			T.atmos_spawn_air("n2=50;TEMP=2.7")
 
 /datum/chemical_reaction/slime/slimefireproof
 	name = "Slime Fireproof"
@@ -423,6 +424,7 @@
 	..()
 
 //Black
+/* Fortuna edit: Mutation toxins disabled
 /datum/chemical_reaction/slime/slimemutate2
 	name = "Advanced Mutation Toxin"
 	id = /datum/reagent/aslimetoxin
@@ -430,6 +432,7 @@
 	required_reagents = list(/datum/reagent/toxin/plasma = 1)
 	required_other = TRUE
 	required_container = /obj/item/slime_extract/black
+*/
 
 //Oil
 /datum/chemical_reaction/slime/slimeexplosion

@@ -380,6 +380,20 @@
 		return
 	new/obj/effect/decal/cleanable/salt(T)
 
+/datum/reagent/consumable/brocjuice
+	name = "Broc Flower Juice"
+	description = "The juice of a ground-up broc flower."
+	nutriment_factor = 1 * REAGENTS_METABOLISM
+	color = "#302000" // rgb: 48, 32, 0
+	taste_description = "flowers"
+
+/datum/reagent/consumable/xanderjuice
+	name = "Xander Root Juice"
+	description = "Ground up xander root, mashed into juicy pulp."
+	nutriment_factor = 1 * REAGENTS_METABOLISM
+	color = "#302000" // rgb: 48, 32, 0
+	taste_description = "dirt"
+
 /datum/reagent/consumable/blackpepper
 	name = "Black Pepper"
 	description = "A powder ground from peppercorns. *AAAACHOOO*"
@@ -511,7 +525,7 @@
 	nutriment_factor = 12 * REAGENTS_METABOLISM
 	value = REAGENT_VALUE_UNCOMMON
 	color = "#302000" // rgb: 48, 32, 0
-	taste_description = "slime"
+	taste_description = "corn"
 
 /datum/reagent/consumable/cornoil/reaction_turf(turf/open/T, reac_volume)
 	if (!istype(T))
@@ -519,10 +533,9 @@
 	T.MakeSlippery(TURF_WET_LUBE, min_wet_time = 10 SECONDS, wet_time_to_add = reac_volume*2 SECONDS)
 	var/obj/effect/hotspot/hotspot = (locate(/obj/effect/hotspot) in T)
 	if(hotspot)
-		var/datum/gas_mixture/lowertemp = T.remove_air(T.air.total_moles())
-		lowertemp.set_temperature(max( min(lowertemp.return_temperature()-2000,lowertemp.return_temperature() / 2) ,0))
+		var/datum/gas_mixture/lowertemp = T.return_air()
+		lowertemp.set_temperature(max( min(lowertemp.return_temperature()-2000,lowertemp.return_temperature() / 2) ,TCMB))
 		lowertemp.react(src)
-		T.assume_air(lowertemp)
 		qdel(hotspot)
 
 /datum/reagent/consumable/enzyme

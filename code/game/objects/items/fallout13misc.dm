@@ -173,14 +173,14 @@
 	desc = "A red and black flag with a sword surrounded in gears and wings, in a dazzling gold."
 	icon_state = "bosflag"
 	item_state = "bosflag"
-	faction = "BOS"
+	faction = FACTION_BROTHERHOOD
 
 /obj/item/flag/legion
 	name = "Legion flag"
 	desc = "A flag with a golden bull, the symbol of Caesar's Legion."
 	icon_state = "legionflag"
 	item_state = "legionflag"
-	faction = "Legion"
+	faction = FACTION_LEGION
 
 /obj/item/flag/oasis
 	name = "Oasis flag"
@@ -193,7 +193,7 @@
 	desc = "A white flag with the black Follower's of the Apocalpyse cross on it."
 	icon_state = "followersflag"
 	item_state = "followersflag"
-	faction = "Followers"
+	faction = FACTION_FOLLOWERS
 
 /obj/item/flag/locust
 	name = "Locust flag"
@@ -226,32 +226,39 @@
 		if(do_after(user, 60, target = src))
 			var/obj/item/stack/sheet/leather/H = I
 			if(H.use(1))
-				var/flag = alert(user, "Please choose which faction flag you wish to create.", "NCR", "Legion", "Yuma", "BOS",)
+				var/list/choices = list("NCR", "Legion", "Yuma", "BOS", "Followers")
+				var/flag = input("Please choose which faction flag you wish to create.") in choices
 				switch(flag)
-					if("NCR")
+					if(FACTION_NCR)
 						name = "NCR flag"
 						desc = "A flag with a two headed bear, the symbol of the New California Republic."
 						icon_state = "ncrflag"
 						item_state = "ncrflag"
 						faction = "NCR"
-					if("Legion")
+					if(FACTION_LEGION)
 						name = "Legion flag"
 						desc = "A flag with a golden bull, the symbol of Caesar's Legion."
 						icon_state = "legionflag"
 						item_state = "legionflag"
-						faction = "Legion"
+						faction = FACTION_LEGION
 					if("Yuma")
 						name = "Yuma flag"
 						desc = "A banner depicting three rivers meeting at its center, overlaid with an ear of corn."
 						icon_state = "cornflag"
 						item_state = "cornflag"
-						faction = "Oasis"
-					if("BOS")
+						faction = FACTION_OASIS
+					if(FACTION_BROTHERHOOD)
 						name = "BOS flag"
 						desc = "A red and black flag with a sword surrounded in gears and wings, in a dazzling gold."
 						icon_state = "bosflag"
 						item_state = "bosflag"
-						faction = "BOS"
+						faction = FACTION_BROTHERHOOD
+					if("Followers")
+						name = "Followers of the Apocalypse flag"
+						desc = "A white flag with the black Follower's of the Apocalpyse cross on it."
+						icon_state = "followersflag"
+						item_state = "followersflag"
+						faction = FACTION_FOLLOWERS
 				update_icon()
 	else
 		attack_hand(user)

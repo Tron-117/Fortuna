@@ -16,6 +16,7 @@ Weapons		Lever shotgun, Grease gun, Repeater carbines, Revolvers, simple guns al
 /datum/job/CaesarsLegion
 	department_flag = LEGION
 	selection_color = "#ffeeee"
+	faction = FACTION_LEGION
 
 	forbids = "The Legion forbids: Using drugs such as stimpacks and alcohol. Ghouls joining. Women fighting (self defense and suicide allowed). Slaves carrying weapons. Using robots and advanced machines. Killing Legion members in secret, only if according to law and in public is it acceptable."
 	enforces = "The Legion demands: Obeying orders of superiors. A roman style name. Wearing the uniform, unless acting as a NON-COMBAT infiltrator. Expect death as punishment for failing to obey."
@@ -94,7 +95,6 @@ Weapons		Lever shotgun, Grease gun, Repeater carbines, Revolvers, simple guns al
 	flag = F13LEGATE
 	head_announce = list("Security")
 	supervisors = "Caesar"
-	faction = "Legion"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
 	total_positions = 0
@@ -139,15 +139,14 @@ Weapons		Lever shotgun, Grease gun, Repeater carbines, Revolvers, simple guns al
 	title = "Legion Orator"
 	flag = F13ORATOR
 	supervisors = "Legate"
-	faction = "Legion"
 	selection_color = "#ffdddd"
 	req_admin_notify = 1
 	total_positions = 0
 	spawn_positions = 0
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13orator
 	display_order = JOB_DISPLAY_ORDER_ORATOR
-	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
-	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
+	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
+	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
 
 /datum/outfit/job/CaesarsLegion/Legionnaire/f13orator	// 10mm Revolver, Spatha
 	name = "Orator"
@@ -189,7 +188,6 @@ Weapons		Lever shotgun, Grease gun, Repeater carbines, Revolvers, simple guns al
 /datum/job/CaesarsLegion/Legionnaire/f13centurion
 	title = "Legion Centurion"
 	flag = F13CENTURION
-	faction = "Legion"
 	head_announce = list("Security")
 	total_positions = 1
 	spawn_positions = 1
@@ -201,8 +199,8 @@ Weapons		Lever shotgun, Grease gun, Repeater carbines, Revolvers, simple guns al
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13centurion
 	exp_requirements = 1500
 
-	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
-	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
+	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
+	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
 
 	loadout_options = list(
 		/datum/outfit/loadout/palacent,		// M1919, military ripper
@@ -288,7 +286,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13decanvet
 	title = "Legion Veteran Decanus"
 	flag = F13DECANVET
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = "You answer directly to the Centurion, his second in command. Lead the camp, ensure its defended, keep track of the Explorers and use your veterans to their full potential."
@@ -297,8 +294,8 @@ commented out pending rework*/
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13decanvet
 	exp_requirements = 900
 
-	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
-	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS)
+	access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
+	minimal_access = list(ACCESS_LEGION, ACCESS_CHANGE_IDS, ACCESS_LEGION_COMMAND)
 
 	loadout_options = list(
 		/datum/outfit/loadout/decvetfront,	// Carl Gustaf, Fireaxe, Smoke bomb, slightly better helmet
@@ -360,13 +357,14 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13decan
 	title = "Legion Prime Decanus"
 	flag = F13DECAN
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = "A experienced officer, often commanding the camp. Give orders, lead patrols."
 	supervisors = "the Veteran Decanus and the Centurion"
 	display_order = JOB_DISPLAY_ORDER_DECAN
 	outfit = /datum/outfit/job/CaesarsLegion/Legionnaire/f13decan
+	access = list(ACCESS_LEGION, ACCESS_LEGION_COMMAND)
+	minimal_access = list(ACCESS_LEGION,  ACCESS_LEGION_COMMAND)
 	exp_requirements = 720
 
 	loadout_options = list(
@@ -434,7 +432,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13decanrec
 	title = "Legion Recruit Decanus"
 	flag = F13DECANREC
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = "The junior officer, you must train the recruits and test them, and if a suicide charge is needed, lead them to a glorious death."
@@ -511,7 +508,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13vexillarius
 	title = "Legion Vexillarius"
 	flag = F13VEXILLARIUS
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = "You are a Veteran of proven bravery. When not fighting, relay orders from the commander and act as a bodyguard."
@@ -584,7 +580,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13explorer
 	title = "Legion Explorer"
 	flag = F13EXPLORER
-	faction = "Legion"
 	total_positions = 2
 	spawn_positions = 2
 	description = "Scout the area, secure key points, but do not ignore orders or wordlessly die some place. A good explorer helps his unit by taking initiative and helping the commander without needing micro-managment."
@@ -661,7 +656,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/vetlegionnaire
 	title = "Veteran Legionnaire"
 	flag = F13VETLEGIONARY
-	faction = "Legion"
 	total_positions = 3
 	spawn_positions = 3
 	description = "A hardened warrior, obeying the orders from the Decanus and Centurion is second nature, as is fighting the profligates. If no officers are present, make sure the younger warriors act like proper Legionaires."
@@ -742,7 +736,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13legionary
 	title = "Prime Legionnaire"
 	flag = F13LEGIONARY
-	faction = "Legion"
 	total_positions = 4
 	spawn_positions = 4
 	description = "A front line soldier who has shown ability to obey and fought in some battles. The Legions muscle, the young men who will build the future with their own blood and sacrifice, for Caesar."
@@ -823,7 +816,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13recleg
 	title = "Recruit Legionnaire"
 	flag = F13RECRUITLEG
-	faction = "Legion"
 	total_positions = 5
 	spawn_positions = 5
 	description = "You have recently come of age or been inducted into Caesar's Legion. You have absolutely no training, and are expected to follow every whim of the Decanii and your Centurion. Respect the soldiers of higher rank."
@@ -896,7 +888,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13slavemaster
 	title = "Legion Slavemaster"
 	flag = F13SLAVEMASTER
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = " The Slavemaster is a legionnaire temporarily assigned to keeping slaves and prisoners in check."
@@ -941,7 +932,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/Legionnaire/f13campfollower	// Chainsaw, Extra materials, Blueprints
 	title = "Legion Forgemaster"
 	flag = F13CAMPFOLLOWER
-	faction = "Legion"
 	total_positions = 1
 	spawn_positions = 1
 	description = "The Forgemaster makes weapons of all sorts and upgrades them, keeping order in the Forge and makes sure the camp is defended."
@@ -991,7 +981,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/auxilia
 	title = "Legion Auxilia"
 	flag = F13AUXILIA
-	faction = "Legion"
 	total_positions = 2
 	spawn_positions = 2
 	description = "A non-combat position in the Legion for free citizens who perform tasks that need special training, such as surgery. They are loyal to the Legion even if they are not treated as equals to warriors."
@@ -1073,7 +1062,6 @@ commented out pending rework*/
 /datum/job/CaesarsLegion/slave
 	title = "Legion Slave"
 	flag = F13LEGIONSLAVE
-	faction = "Legion"
 	total_positions = 3
 	spawn_positions = 3
 	description = "A slave that survives the breaking camps is given a Legion appropriate name (latin-tribal inspired) and bull tattoo. Be obedient, respectful, stay inside the camp. Work the farm, mine, make food, clean and help injured men. Do NOT escape on your own, up to you how to handle it if forcibly freed by outside forces."
@@ -1168,7 +1156,6 @@ Venator  - Zero slots, role built on cloning vet ranger, linear just vastly bett
 /datum/job/CaesarsLegion/Legionnaire/f13venator
 	title = "Legion Venator"
 	flag = F13VENATOR
-	faction = "Legion"
 	total_positions = 0
 	spawn_positions = 0
 	description = "You are the Venator -- the Hunter. With your powerful rifle and your many years of experience, you are a formidable killing machine, capable of taking down even the most formidable targets. Note that you are not a rank-and-file legionary, and you should not be operating as such -- your job is special operations, not fighting alongside the hordes of the Legion."

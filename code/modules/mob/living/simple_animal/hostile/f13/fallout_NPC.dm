@@ -248,7 +248,7 @@
 	icon_gib = "bs_knight"
 	speak_chance = 0
 	mob_biotypes = MOB_ORGANIC|MOB_HUMANOID
-	faction = list("bos")
+	faction = list(FACTION_BROTHERHOOD)
 	turns_per_move = 5
 	response_help_simple = "pokes"
 	response_disarm_simple = "shoves"
@@ -261,7 +261,7 @@
 	harm_intent_damage = 8
 	melee_damage_lower = 10
 	melee_damage_upper = 10
-	attack_verb_simple = "áüåò"
+	attack_verb_simple = "pistol-whips"
 	attack_sound = 'sound/weapons/punch1.ogg'
 	a_intent = INTENT_HARM
 	loot = list(/obj/effect/mob_spawn/human/corpse/bs)
