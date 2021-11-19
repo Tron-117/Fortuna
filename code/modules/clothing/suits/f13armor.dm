@@ -24,6 +24,7 @@
 	item_state = "leather_jacket"
 	desc = "A black, heavy leather jacket."
 	armor = list("melee" = 15, "bullet" = 5, "laser" = 10, "energy" = 15, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 0)
+	slowdown = 0.075
 
 /obj/item/clothing/suit/armor/f13/leather_jacket/combat
 	name = "combat leather jacket"
@@ -31,6 +32,7 @@
 	item_state = "combat_jacket"
 	desc = "This heavily padded leather jacket is unusual in that it has two sleeves. You'll definitely make a fashion statement whenever, and wherever, you rumble."
 	armor = list("melee" = 25, "bullet" = 25, "laser" = 25, "energy" = 20, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 25, "acid" = 25)
+	slowdown = 0.15
 
 /obj/item/clothing/suit/armor/f13/leather_jacket/combat/coat
 	name = "combat leather coat"
@@ -38,6 +40,7 @@
 	item_state = "combat_coat"
 	desc = "A combat leather jacket, outfitted with a special armored leather coat."
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 35, "energy" = 35, "bomb" = 45, "bio" = 30, "rad" = 5, "fire" = 50, "acid" = 35)
+	slowdown = 0.2
 
 /obj/item/clothing/suit/armor/f13/leather_jacket/combat/riotpolice
 	name = "combat body armor"
@@ -45,6 +48,7 @@
 	item_state = "combat_coat"
 	desc = "A heavy armor with ballistic inserts, sewn into a padded riot police coat."
 	armor = list("melee" = 70, "bullet" = 35, "laser" = 30, "energy" = 25, "bomb" = 30, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 35, "wound" = 0)
+	slowdown = 0.2
 
 /obj/item/clothing/suit/armor/f13/kit
 	name = "armor kit"
@@ -53,6 +57,7 @@
 	item_state = "armorkit"
 	armor = list("melee" = 15, "bullet" = 25, "laser" = 10, "energy" = 15, "bomb" = 25, "bio" = 0, "rad" = 0, "fire" = 10, "acid" = 0)
 	strip_delay = 30
+	slowdown = 0.1
 
 /obj/item/clothing/suit/armor/f13/kit/Initialize()
 	. = ..()
@@ -67,6 +72,7 @@
 	strip_delay = 30
 	icon = 'icons/fallout/clothing/armored_light.dmi'
 	mob_overlay_icon = 'icons/fallout/onmob/clothes/armor_light.dmi'
+	slowdown = 0.1
 
 /obj/item/clothing/suit/armor/f13/punk/Initialize()
 	. = ..()
@@ -79,6 +85,7 @@
 	item_state = "leather_armor"
 	armor = list("melee" = 23, "bullet" = 18, "laser" = 20, "energy" = 25, "bomb" = 32, "bio" = 0, "rad" = 10, "fire" = 30, "acid" = 35)
 	strip_delay = 40
+	slowdown = 0.15
 
 /obj/item/clothing/suit/armor/f13/leatherarmor/reinforced
 	name = "reinforced leather armor"
@@ -86,6 +93,7 @@
 	item_state = "leather_armor_2"
 	desc = "An enhanced version of the basic leather armor with extra layers of protection. Finely crafted from tanned brahmin hide."
 	armor = list("melee" = 30, "bullet" = 30, "laser" = 20, "energy" = 30, "bomb" = 35, "bio" = 0, "rad" = 15, "fire" = 40, "acid" = 35)
+	slowdown = 0.2
 
 /obj/item/clothing/suit/armor/f13/metalarmor
 	name = "metal armor"
@@ -95,7 +103,7 @@
 	icon_state = "metal_chestplate"
 	item_state = "metal_chestplate"
 	armor = list("melee" = 45, "bullet" = 40, "laser" = 45, "energy" = 40, "bomb" = 40, "bio" = 30, "rad" = 15, "fire" = 60, "acid" = 0)
-	slowdown = 0.25
+	slowdown = 0.45
 	strip_delay = 10
 
 /obj/item/clothing/suit/armor/fluff/metalarmor/Initialize()
@@ -113,7 +121,7 @@
 	icon_state = "metal_chestplate2"
 	item_state = "metal_chestplate2"
 	armor = list("melee" = 50, "bullet" = 50, "laser" = 60, "energy" = 50, "bomb" = 40, "bio" = 30, "rad" = 20, "fire" = 60, "acid" = 0)
-	slowdown = 0.3
+	slowdown = 0.6
 	strip_delay = 10
 
 /obj/item/clothing/suit/armor/f13/metalarmor/steelbib
@@ -123,7 +131,7 @@
 	item_state = "steel_bib"
 	body_parts_covered = CHEST|GROIN
 	armor = list("melee" = 45, "bullet" = 45, "laser" = 45, "energy" = 40, "bomb" = 20, "bio" = 30, "rad" = 20, "fire" = 60, "acid" = 0)
-	slowdown = 0.05
+	slowdown = 0.45
 	strip_delay = 5
 
 //Combat armor (Faction specific is on f13factionarmor.dm)
@@ -132,8 +140,8 @@
 	desc = "An old military grade pre war combat armor."
 	icon_state = "combat_armor"
 	item_state = "combat_armor"
-	armor = list("melee" = 45, "bullet" = 35, "laser" = 35, "energy" = 60, "bomb" = 25, "bio" = 60, "rad" = 60, "fire" = 60, "acid" = 0)
-	slowdown = 0.05
+	armor = list("melee" = 50, "bullet" = 40, "laser" = 40, "energy" = 60, "bomb" = 25, "bio" = 60, "rad" = 60, "fire" = 60, "acid" = 0)
+	slowdown = 0.1
 
 /obj/item/clothing/suit/armor/f13/combat/dark
 	name = "combat armor"
@@ -155,8 +163,8 @@
 	icon = 'icons/obj/clothing/suits.dmi'
 	icon_state = "combat_armor_mk2"
 	item_state = "combat_armor_mk2"
-	armor = list("melee" = 60, "bullet" = 45, "laser" = 45, "energy" = 40, "bomb" = 39, "bio" = 70, "rad" = 70, "fire" = 70, "acid" = 0)
-	slowdown = 0.1
+	armor = list("melee" = 65, "bullet" = 50, "laser" = 50, "energy" = 40, "bomb" = 39, "bio" = 70, "rad" = 70, "fire" = 70, "acid" = 0)
+	slowdown = 0.15
 
 /obj/item/clothing/suit/armor/f13/combat/mk2/dark
 	name = "reinforced combat armor"
@@ -168,8 +176,8 @@
 	desc = "A custom version of the pre-war combat armor, slimmed down and minimalist for domestic S.W.A.T. teams."
 	icon_state = "armoralt"
 	item_state = "armoralt"
-	armor = list("melee" = 55, "bullet" = 25, "laser" = 25, "energy" = 45, "bomb" = 55, "bio" = 60, "rad" = 15, "fire" = 60, "acid" = 30)
-	slowdown = 0.1
+	armor = list("melee" = 55, "bullet" = 35, "laser" = 25, "energy" = 45, "bomb" = 55, "bio" = 60, "rad" = 15, "fire" = 60, "acid" = 30)
+	slowdown = 0.2
 
 /obj/item/clothing/suit/armor/f13/combat/chinese
 	name = "chinese combat armor"
@@ -177,6 +185,7 @@
 	icon_state = "chicom_armor"
 	item_state = "chicom_armor"
 	armor = list("melee" = 20, "bullet" = 35, "laser" = 5, "energy" = 40, "bomb" = 60, "bio" = 0, "rad" = 0, "fire" = 0, "acid" = 10)
+	slowdown = 0.25
 
 /obj/item/clothing/suit/armor/f13/combatrusted
 	name = "rusted combat armor"
@@ -184,6 +193,7 @@
 	icon_state = "rusted_combat_armor"
 	item_state = "rusted_combat_armor"
 	armor = list("melee" = 40, "bullet" = 30, "laser" = 30, "energy" = 38, "bomb" = 48, "bio" = 58, "rad" = 10, "fire" = 58, "acid" = 18)
+	slowdown = 0.25
 
 /obj/item/clothing/suit/armor/f13/combat/environmental
 	name = "environmental armor"
@@ -195,6 +205,7 @@
 	permeability_coefficient = 0.5
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	armor = list("melee" = 35, "bullet" = 30, "laser" = 20,"energy" = 45, "bomb" = 55, "bio" = 70, "rad" = 100, "fire" = 60, "acid" = 50)
+	slowdown = 0.25
 	strip_delay = 60
 	equip_delay_other = 60
 	flags_inv = HIDEJUMPSUIT
